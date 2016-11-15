@@ -14,6 +14,9 @@ defmodule PigLatin do
         List.to_string([tail, String.downcase(first_letter), second_letter])
     end
 
-    
+    def pig_latin_sentence(sentence) do
+        String.split(sentence, " ")
+        |> Enum.map(fn (word) -> word_maker(word) end)
+    end
 
 end

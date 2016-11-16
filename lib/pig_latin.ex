@@ -21,6 +21,7 @@ defmodule PigLatin do
     def pig_latin_sentence(sentence) do
         String.split(sentence, " ")
         |> Enum.map(fn (word) -> length_tuple(word) end)
+        |> Enum.join(" ")
     end
 
    def word_maker_vowel_first_letter(word) do
@@ -42,6 +43,15 @@ defmodule PigLatin do
             end
         end
    end
+
+
+   def is_vowel_mapped(word) do
+       word 
+       |> String.split("")
+       |> Enum.map(fn (char) -> Enum.member?(vowel_list, char) end)
+       |> Enum.find_index(fn(bool) -> bool == true end)
+   end
+
 
 
 end

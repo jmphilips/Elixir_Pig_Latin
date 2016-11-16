@@ -52,6 +52,13 @@ defmodule PigLatin do
        |> Enum.find_index(fn(bool) -> bool == true end)
    end
 
+   def string_splitter(word) do
+       String.split_at(word, is_vowel_mapped(word))
+       |> Tuple.to_list
+   end
 
-
+   def list_to_string(list) do
+       [first, second] = list 
+       Enum.join([second, first])
+   end
 end

@@ -39,7 +39,7 @@ defmodule PigLatin do
            false -> case length do
                         1 -> word
                         2 -> word_maker_less_than_three(word)
-                        _ -> word_maker_three_or_more(word)
+                        _ -> string_splitter(word)
             end
         end
    end
@@ -55,10 +55,11 @@ defmodule PigLatin do
    def string_splitter(word) do
        String.split_at(word, is_vowel_mapped(word))
        |> Tuple.to_list
+       |> list_to_string
    end
 
    def list_to_string(list) do
        [first, second] = list 
-       Enum.join([second, first])
+       Enum.join([second, first, "ay"])
    end
 end
